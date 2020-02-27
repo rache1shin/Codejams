@@ -5,19 +5,23 @@ public class Solution {
 		Scanner in = new Scanner(new BufferedReader(new InputStreamReader(System.in)));
 		int t = in.nextInt();  // Scanner has functions to read ints, longs, strings, chars, etc.		
 		for (int i = 1; i <= t; ++i) {
-			int limit = in.nextInt();
+			long limit = in.nextInt();
 			String attack = in.next();
-			int num = runProgram(limit, attack);
+			int num;
+			if(attack.length()==0) 
+				num = -1;
+			else
+				num = runProgram(limit, attack);	
 			if(num==-1) {
 				System.out.println("Case #" + i + ": IMPOSSIBLE");
 			}
 			else {
-				System.out.println("Case #"+i+" : "+num);
+				System.out.println("Case #"+i+": "+num);
 			}
 		}
 	}
-	private static int runProgram(int limit, String attack) {
-		int[] arr = new int[20];
+	private static int runProgram(long limit, String attack) {
+		int[] arr = new int[30];
 		int pointer = 0;
 		int realPointer=0;
 		int change = 0;
